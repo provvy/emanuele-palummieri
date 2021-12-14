@@ -45,20 +45,29 @@ const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 5em;
+  align-items: center;
+  font-family: "Crimson Pro", serif;
 `;
 const Image = styled.div`
-  flex: 1 360px;
+  flex: 1 320px;
   margin: 0 20px 24px 10px;
+  @media screen and (max-width: 768px) {
+    margin: 0 10px 24px;
+  }
 `;
 const Text = styled(Image)`
   margin: 0 10px 24px 20px;
+  @media screen and (max-width: 803px) {
+    margin: 0 10px 24px;
+  }
   h3 {
     padding: 0 0 0.6em;
-    font-size: 24px;
+    font-size: 25px;
     color: #e5e5e5;
+    font-weight: 500;
   }
   p {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.4em;
     color: #a5a5a5;
     @media screen and (max-width: 930px) {

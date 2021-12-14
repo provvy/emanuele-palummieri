@@ -10,11 +10,21 @@ const Card = (props) => {
       <Image>
         <GatsbyImage image={image.src} alt={image.alt} />
         <HoverDiv>
-          <StyledLink to="/galleria">{data.title}</StyledLink>
+          <StyledLink to={"/galleria"} state={{ filter: `${data.title}` }}>
+            {data.title}
+          </StyledLink>
         </HoverDiv>
       </Image>
       <Text>
-        <h3>{data.title}</h3>
+        <h3>
+          <StyledLink
+            title
+            to={"/galleria"}
+            state={{ filter: `${data.title}` }}
+          >
+            {data.title}
+          </StyledLink>
+        </h3>
         <p>{data.text}</p>
       </Text>
     </Container>
@@ -24,12 +34,13 @@ const Card = (props) => {
 export default Card;
 
 const Container = styled.div`
+  font-family: "Crimson Pro", serif;
   flex: 1 200px;
   display: flex;
   flex-direction: column;
   margin: 0 10px 40px;
   align-items: center;
-  @media screen and (max-width: 806px) {
+  @media screen and (max-width: 756px) {
     flex-basis: 680px;
   }
 `;
@@ -60,7 +71,7 @@ const HoverDiv = styled.div`
 `;
 const StyledLink = styled(Link)`
   color: #e5e5e5;
-  font-size: 26px;
+  font-size: ${({ title }) => (title ? "inherit" : "26px")};
   text-decoration: none;
   :hover {
     text-decoration: underline;
@@ -69,11 +80,12 @@ const StyledLink = styled(Link)`
 const Text = styled.div`
   h3 {
     padding: 1em 0 0.6em;
-    font-size: 24px;
+    font-size: 25px;
+    font-weight: 500;
     color: #e5e5e5;
   }
   p {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.4em;
     color: #a5a5a5;
   }

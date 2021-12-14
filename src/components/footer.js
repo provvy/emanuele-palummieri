@@ -2,70 +2,116 @@ import React from "react";
 import styled from "styled-components";
 import { BsFacebook } from "react-icons/bs";
 import { IoMailOutline } from "react-icons/io5";
-import { MdOutlineCopyright } from "react-icons/md";
+import { Link } from "gatsby";
 
 const Footer = () => {
+  const date = new Date().getFullYear();
   return (
     <StyledFooter>
       <Top>
         <Logo>
-          <h4>EMANUELE PALUMMIERI</h4>
-        </Logo>
-        <Contatti>
           <p>
-            <MailIcon />
-            info@gmail.com
+            © {date}, Immagini e testi sono di proprietà di Emanuele Palummieri
           </p>
           <p>
-            <FacebookIcon />
+            <StyledLink left to="/">
+              Home
+            </StyledLink>
+            <span>|</span>
+            <StyledLink to="/disclaimer">Disclaimer</StyledLink>
+          </p>
+        </Logo>
+        <Contatti>
+          <p>Contatti</p>
+          <p>
+            <MailIcon /> info@gmail.com
+          </p>
+          <p>
+            <FacebookIcon />{" "}
+            <a
+              target="_blank"
+              href="https://www.facebook.com/emanuele.palummieri"
+              rel="noreferrer"
+            >
+              Emanuele Palummieri
+            </a>
           </p>
         </Contatti>
       </Top>
-      <Bottom>
-        <p>
-          Tutte le immagini e i testi sono di proprietà di Emanuele Palummieri{" "}
-          <span>
-            <CopyrightIcon />
-            2021
-          </span>
-        </p>
-      </Bottom>
     </StyledFooter>
   );
 };
 
 export default Footer;
 const StyledFooter = styled.footer`
-  background-color: #a5a5a5;
-  padding: 5em 2em;
+  background-color: #e5e5e5;
   color: #1e1c19;
+  padding: 2.5em 0;
+  font-family: "Crimson Pro", serif;
 `;
 const Top = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  width: 1000px;
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 0 10px;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const Logo = styled.div`
-  flex: 1;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  h4 {
-    font-size: 26px;
-    font-family: "Cinzel", serif;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+  flex-direction: column;
+  p {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    margin: 0.2em 0;
+    font-size: 18px;
+  }
+  p:last-child {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  span {
+    margin: 0 2px;
+  }
+`;
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+  :hover {
+    text-decoration: underline;
   }
 `;
 const Contatti = styled(Logo)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  @media screen and (max-width: 768px) {
+    margin-top: 25px;
+  }
+  p {
+    font-weight: 400;
+    font-size: 16px;
+    a {
+      color: inherit;
+      text-decoration: none;
+      :hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  p:first-child {
+    font-size: 18px;
+    font-weight: 500;
+  }
 `;
-const MailIcon = styled(IoMailOutline)``;
-const FacebookIcon = styled(BsFacebook)``;
-const CopyrightIcon = styled(MdOutlineCopyright)``;
-const Bottom = styled.div`
-  display: flex;
-  justify-content: center;
+const MailIcon = styled(IoMailOutline)`
+  margin-right: 6px;
+`;
+const FacebookIcon = styled(BsFacebook)`
+  margin-right: 6px;
 `;

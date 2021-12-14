@@ -10,15 +10,15 @@ const Galleries = ({ data }) => {
   } = data;
   const dataObj = [
     {
-      title: "Galleria1",
+      title: "Natura",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mattis velit, eget viverra ipsum. Vivamus sit amet felis a dolor tempor tincidunt. Vestibulum eu ipsum turpis. Nam pretium turpis.",
     },
     {
-      title: "Galleria2",
+      title: "Paesaggi",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mattis velit, eget viverra ipsum. Vivamus sit amet felis a dolor tempor tincidunt. Vestibulum eu ipsum turpis. Nam pretium turpis.",
     },
     {
-      title: "Galleria3",
+      title: "Urbano",
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mattis velit, eget viverra ipsum. Vivamus sit amet felis a dolor tempor tincidunt. Vestibulum eu ipsum turpis. Nam pretium turpis.",
     },
   ];
@@ -52,9 +52,8 @@ const Galleries = ({ data }) => {
 export default Galleries;
 
 export const Container = styled.div`
-  max-width: 100%;
+  max-width: 95%;
   width: 1000px;
-  padding: 0 2.7em;
 `;
 export const Title = styled.div`
   padding: 3em 0;
@@ -95,6 +94,7 @@ const StyledLink = styled(Link)`
   cursor: pointer;
   text-decoration: none;
   padding-left: 10px;
+  font-style: italic;
   :hover {
     text-decoration: underline;
   }

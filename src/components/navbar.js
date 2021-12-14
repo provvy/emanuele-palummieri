@@ -23,7 +23,10 @@ const Navbar = () => {
         <ul>
           <li>
             <StyledLink
-              activeStyle={{ fontWeight: "400", color: "#dba63c" }}
+              activeStyle={{
+                fontWeight: "400",
+                color: "#dba63c",
+              }}
               to="/"
             >
               Home
@@ -37,14 +40,14 @@ const Navbar = () => {
               Galleria
             </StyledLink>
           </li>
-          <li>
+          {/* <li>
             <StyledLink
               activeStyle={{ fontWeight: "400", color: "#dba63c" }}
               to="/bio"
             >
               Bio
             </StyledLink>
-          </li>
+          </li> */}
           <li>
             <StyledLink
               activeStyle={{ fontWeight: "400", color: "#dba63c" }}
@@ -72,15 +75,16 @@ const Header = styled.header`
   left: 0;
   background-color: #1e1c19;
   z-index: 1;
-  @media screen and (max-width: 1200px) {
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.26);
+  @media screen and (max-width: 951px) {
     padding: 1.5em;
   }
 `;
 const Logo = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  flex: 0.55;
+  flex: 0.7;
   @media screen and (max-width: 951px) {
     justify-content: space-between;
     flex: 1;
@@ -94,11 +98,11 @@ const Logo = styled.div`
     @media screen and (max-width: 951px) {
       font-size: 26px;
     }
-    @media screen and (max-width: 415px) {
+    @media screen and (max-width: 445px) {
       font-size: 20px;
     }
-    @media screen and (max-width: 342px) {
-      font-size: 18px;
+    @media screen and (max-width: 362px) {
+      font-size: 16px;
     }
   }
 `;
@@ -106,21 +110,21 @@ const Nav = styled.nav`
   font-family: "source sans pro", sans-serif;
   font-weight: 300;
   font-size: 18px;
-  flex: 0.45;
+  flex: 0.3;
   @media screen and (max-width: 951px) {
     position: absolute;
-    bottom: ${(props) => (!props.menu ? "0" : "-216px")};
+    bottom: ${(props) => (!props.menu ? "0" : "-162px")};
     opacity: ${(props) => (!props.menu ? "0" : "100%")};
     transition: bottom 0.5s, opacity 0.5s;
     left: 0;
-    width: 100vw;
+    width: 100%;
     font-size: 16px;
     background-color: #1e1c19;
     z-index: -1;
   }
   ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     @media screen and (max-width: 951px) {
       flex-direction: column;

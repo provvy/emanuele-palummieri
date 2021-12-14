@@ -29,10 +29,23 @@ const GlobalStyle = createGlobalStyle`
             box-sizing: border-box;
         }
     }
+    ::after, ::before {
+      box-sizing: border-box;
+    }
 `;
 const Main = styled.div`
   background-color: #1e1c19;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 94px auto 0;
+  @media screen and (max-width: 951px) {
+    margin: 83px auto 0;
+  }
+  @media screen and (max-width: 445px) {
+    margin: 75px auto 0;
+  }
+  @media screen and (max-width: 362px) {
+    margin: 71px auto 0;
+  }
 `;
