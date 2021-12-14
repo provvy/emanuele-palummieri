@@ -16,16 +16,14 @@ const Slideshow = ({ data, activeButton }) => {
   useEffect(() => {
     if (activeImage > edges.length - 1) {
       setActiveImage(edges.length - 1);
-      console.log(activeImage);
     } else if (activeImage < 0) {
       setActiveImage(0);
-      console.log(activeImage);
     }
   }, [activeImage, edges.length]);
   useEffect(() => {
     const sum = thumbRef.current
       .slice(0, activeImage + 1)
-      .reduce((a, c) => a + c.offsetWidth, 0);
+      .reduce((a, c) => a + (c ? c.offsetWidth : 0), 0);
     setWidthSum(sum);
     if (widthSum > window.innerWidth) {
       const widthDifference = widthSum - document.body.clientWidth;
