@@ -6,12 +6,12 @@ import { MdSlideshow, MdGridView } from "react-icons/md";
 import styled from "styled-components";
 import Slideshow from "../components/slideshow";
 
-const GalleriaPage = ({ data, location }) => {
+const GalleriaPage = ({ data }) => {
   const buttons = ["Tutte", "Natura", "Paesaggi", "Urbano"];
   const views = ["Slide", "Grid"];
-  const {
-    state: { filter },
-  } = location;
+  // const {
+  //   state: { filter },
+  // } = location;
   const initialState = {
     edges: data["natura"].edges.concat(
       data["paesaggi"].edges,
@@ -19,7 +19,7 @@ const GalleriaPage = ({ data, location }) => {
     ),
   };
   const [activeView, setActiveView] = useState(views[0]);
-  const [activeButton, setActiveButton] = useState(filter || buttons[0]);
+  const [activeButton, setActiveButton] = useState(buttons[0]);
   const [activeData, setActiveData] = useState(initialState);
   useEffect(() => {
     if (activeButton === "Tutte") {
