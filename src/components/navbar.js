@@ -165,7 +165,7 @@ const MenuIcon = styled(AiOutlineMenu)`
     display: block;
   }
 `;
-const CloseIcon = styled(AiOutlineClose)`
+export const CloseIcon = styled(AiOutlineClose)`
   display: none;
   cursor: pointer;
   color: #e5e5e5;

@@ -71,7 +71,7 @@ const Cards = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
-const LinkContainer = styled.div`
+export const LinkContainer = styled.div`
   padding: 0.5em 0 2.5em;
   display: flex;
   span {
@@ -81,15 +81,15 @@ const LinkContainer = styled.div`
     transform: translateX(0px);
     transition: 0.5s;
   }
-  :hover {
-    span {
+  a:hover {
+    + span {
       opacity: 1;
       transform: translateX(5px);
     }
   }
 `;
-const StyledLink = styled(Link)`
-  font-size: 20px;
+export const StyledLink = styled(Link)`
+  font-size: 18px;
   color: #dba63c;
   cursor: pointer;
   text-decoration: none;
@@ -99,7 +99,7 @@ const StyledLink = styled(Link)`
     text-decoration: underline;
   }
 `;
-const StyledArrow = styled(BiChevronRight)`
+export const StyledArrow = styled(BiChevronRight)`
   color: #dba63c;
-  font-size: 20px;
+  font-size: 18px;
 `;

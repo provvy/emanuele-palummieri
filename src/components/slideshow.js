@@ -19,8 +19,6 @@ const Slideshow = ({ data, activeButton }) => {
     } else if (activeImage < 0) {
       setActiveImage(0);
     }
-  }, [activeImage, edges.length]);
-  useEffect(() => {
     const sum = thumbRef.current
       .slice(0, activeImage + 1)
       .reduce((a, c) => a + (c ? c.offsetWidth : 0), 0);
@@ -31,7 +29,7 @@ const Slideshow = ({ data, activeButton }) => {
     } else {
       setMargin(0);
     }
-  }, [activeImage, widthSum]);
+  }, [activeImage, widthSum, edges.length]);
   useEffect(() => {
     if (listRef.current.offsetWidth > document.body.clientWidth) {
       if (margin > listRef.current.offsetWidth - document.body.clientWidth) {
@@ -154,7 +152,7 @@ const Thumbnail = styled.div`
     background: none;
   }
 `;
-const StyledGatsbyImage = styled(GatsbyImage)`
+export const StyledGatsbyImage = styled(GatsbyImage)`
   height: 100%;
   > div {
     height: 100%;

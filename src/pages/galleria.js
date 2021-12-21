@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import { graphql } from "gatsby";
-import { Title } from "../components/galleries";
+import {
+  LinkContainer,
+  StyledArrow,
+  StyledLink,
+  Title,
+} from "../components/galleries";
 import { MdSlideshow, MdGridView } from "react-icons/md";
 import styled from "styled-components";
 import Slideshow from "../components/slideshow";
+import Gridshow from "../components/gridshow";
 
 const GalleriaPage = ({ data, location }) => {
   const buttons = ["Tutte", "Natura", "Paesaggi", "Urbano"];
@@ -39,6 +45,7 @@ const GalleriaPage = ({ data, location }) => {
         <FlexTitle as={Title}>
           <h2>GALLERIA</h2>
           <View>
+            <p>Cambia visualizzazione:</p>
             <SlideIcon
               active={activeView === "Slide"}
               onClick={() => setActiveView("Slide")}
@@ -49,6 +56,14 @@ const GalleriaPage = ({ data, location }) => {
             />
           </View>
         </FlexTitle>
+        <LinkContainer>
+          <StyledLink to="/contatti">
+            Per qualunque info non esitare a contattarmi!
+          </StyledLink>
+          <span>
+            <StyledArrow />
+          </span>
+        </LinkContainer>
         <Filters>
           <p>Filtra:</p>
           {buttons.map((button) => (
@@ -66,6 +81,7 @@ const GalleriaPage = ({ data, location }) => {
         {activeView === "Slide" && (
           <Slideshow activeButton={activeButton} data={activeData} />
         )}
+        {activeView === "Grid" && <Gridshow data={activeData} />}
       </Bottom>
     </Layout>
   );
@@ -79,10 +95,23 @@ const Top = styled.div`
 const FlexTitle = styled.div`
   display: flex;
   justify-content: space-between;
+  padding: 3em 0 1.5em;
 `;
 const View = styled.div`
   display: flex;
   align-items: center;
+  font-family: "Crimson Pro", serif;
+  flex-wrap: wrap;
+  p {
+    color: #dba63c;
+    padding: 5px 13px;
+    font-size: 18px;
+  }
+  @media screen and (max-width: 768px) {
+    p {
+      display: none;
+    }
+  }
 `;
 const SlideIcon = styled(MdSlideshow)`
   font-size: 24px;
@@ -102,6 +131,7 @@ const Filters = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 1em;
   p {
     color: #dba63c;
     padding: 5px 13px;
