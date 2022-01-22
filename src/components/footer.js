@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BsFacebook } from "react-icons/bs";
 import { IoMailOutline } from "react-icons/io5";
 import { Link } from "gatsby";
+import { BsWhatsapp } from "react-icons/bs";
 
 const Footer = () => {
   const date = new Date().getFullYear();
@@ -18,13 +19,27 @@ const Footer = () => {
               Home
             </StyledLink>
             <span>|</span>
-            <StyledLink to="/disclaimer">Disclaimer</StyledLink>
+            <a
+              target="_blank"
+              href="https://www.privacypolicies.com/live/66f0dab1-6a6e-4c27-aab8-736f1d341386"
+              rel="noreferrer"
+            >
+              Termini e Condizioni
+            </a>
+            <span>|</span>
+            <a
+              target="_blank"
+              href="https://www.iubenda.com/privacy-policy/76488575"
+              rel="noreferrer"
+            >
+              Privacy Policy
+            </a>
           </p>
         </Logo>
         <Contatti>
           <p>Contatti</p>
           <p>
-            <MailIcon /> info@gmail.com
+            <MailIcon /> <a href="mailto:info@gmail.com">info@gmail.com</a>
           </p>
           <p>
             <FacebookIcon />{" "}
@@ -35,6 +50,9 @@ const Footer = () => {
             >
               Emanuele Palummieri
             </a>
+          </p>
+          <p>
+            <WhatsAppIcon /> <a href="tel:+393931440205">393.1440205</a>
           </p>
         </Contatti>
       </Top>
@@ -76,9 +94,17 @@ const Logo = styled.div`
   p:last-child {
     font-weight: 400;
     font-size: 16px;
+    flex-wrap: wrap;
   }
   span {
     margin: 0 2px;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    :hover {
+      text-decoration: underline;
+    }
   }
 `;
 const StyledLink = styled(Link)`
@@ -113,5 +139,8 @@ const MailIcon = styled(IoMailOutline)`
   margin-right: 6px;
 `;
 const FacebookIcon = styled(BsFacebook)`
+  margin-right: 6px;
+`;
+const WhatsAppIcon = styled(BsWhatsapp)`
   margin-right: 6px;
 `;

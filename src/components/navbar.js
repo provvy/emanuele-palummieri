@@ -113,7 +113,7 @@ const Nav = styled.nav`
   flex: 0.3;
   @media screen and (max-width: 951px) {
     position: absolute;
-    bottom: ${(props) => (!props.menu ? "0" : "-162px")};
+    bottom: ${(props) => (!props.menu ? "100%" : "-162px")};
     opacity: ${(props) => (!props.menu ? "0" : "100%")};
     transition: bottom 0.5s, opacity 0.5s;
     left: 0;

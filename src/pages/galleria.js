@@ -11,6 +11,7 @@ import { MdSlideshow, MdGridView } from "react-icons/md";
 import styled from "styled-components";
 import Slideshow from "../components/slideshow";
 import Gridshow from "../components/gridshow";
+import Seo from "../components/seo";
 
 const GalleriaPage = ({ data, location }) => {
   const buttons = ["Tutte", "Natura", "Paesaggi", "Urbano"];
@@ -41,6 +42,13 @@ const GalleriaPage = ({ data, location }) => {
   }, [activeButton, data]);
   return (
     <Layout>
+      <Seo
+        slug={"/galleria"}
+        title={"Galleria"}
+        description={
+          "Nella galleria potrai sfogliare i numerosi scatti di Emanuele Palummieri, divisi per categorie: alle foto sulla natura, si accompagnano quelle a tema paesaggi e, infine, quelle in ambito urbano."
+        }
+      />
       <Top>
         <FlexTitle as={Title}>
           <h2>GALLERIA</h2>
@@ -58,7 +66,7 @@ const GalleriaPage = ({ data, location }) => {
         </FlexTitle>
         <LinkContainer>
           <StyledLink to="/contatti">
-            Per qualunque info non esitare a contattarmi!
+            Per info su stampe e commissioni non esitare a contattarmi!
           </StyledLink>
           <span>
             <StyledArrow />
@@ -88,6 +96,7 @@ const GalleriaPage = ({ data, location }) => {
 };
 
 export default GalleriaPage;
+
 const Top = styled.div`
   width: 1000px;
   max-width: 95%;
