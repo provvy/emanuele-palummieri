@@ -98,6 +98,9 @@ const StyledDiv = styled.div`
   :hover::after {
     opacity: 1;
   }
+  @media screen and (max-width: 768px) {
+    margin: 10px 0;
+  }
   @media screen and (max-width: 430px) {
     height: 200px;
   }

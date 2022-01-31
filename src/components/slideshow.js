@@ -156,6 +156,9 @@ export const StyledGatsbyImage = styled(GatsbyImage)`
   height: 100%;
   > div {
     height: 100%;
+    > img {
+      height: 100%;
+    }
   }
 `;
 const LittleLeftArrow = styled(LeftArrow)`
