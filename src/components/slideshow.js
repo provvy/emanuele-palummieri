@@ -8,57 +8,49 @@ const Slideshow = ({ data, activeButton }) => {
   const thumbRef = useRef([]);
   const listRef = useRef(null);
   const [activeImage, setActiveImage] = useState(0);
-  const [margin, setMargin] = useState(0);
-  const [widthSum, setWidthSum] = useState(0);
+
   useEffect(() => {
     setActiveImage(0);
   }, [activeButton]);
+
+  useEffect(() => {
+    const keyHandler = (e) => {
+      if (e.keyCode === "37") setActiveImage((activeImage) => activeImage - 1);
+      else if (e.keyCode === "39")
+        setActiveImage((activeImage) => activeImage + 1);
+      return;
+    };
+    // const keyHandler = (e) => {
+    //   switch (e.keyCode) {
+    //     case 37:
+    //       setActiveImage((activeImage) => activeImage - 1);
+    //       break;
+    //     case 39:
+    //       setActiveImage((activeImage) => activeImage + 1);
+    //       break;
+    //     default:
+    //       break;
+    //   }
+    // };
+    window.addEventListener("keydown", keyHandler);
+    return () => {
+      window.removeEventListener("keydown", keyHandler);
+    };
+  }, []);
+
   useEffect(() => {
     if (activeImage > edges.length - 1) {
       setActiveImage(edges.length - 1);
     } else if (activeImage < 0) {
       setActiveImage(0);
     }
-    const sum = thumbRef.current
-      .slice(0, activeImage + 1)
-      .reduce((a, c) => a + (c ? c.offsetWidth : 0), 0);
-    setWidthSum(sum);
-    if (widthSum > window.innerWidth) {
-      const widthDifference = widthSum - document.body.clientWidth;
-      setMargin(widthDifference);
-    } else {
-      setMargin(0);
-    }
-  }, [activeImage, widthSum, edges.length]);
-  useEffect(() => {
-    if (listRef.current.offsetWidth > document.body.clientWidth) {
-      if (margin > listRef.current.offsetWidth - document.body.clientWidth) {
-        setMargin(listRef.current.offsetWidth - document.body.clientWidth);
-      } else if (margin < 0) {
-        setMargin(0);
-      }
-    } else {
-      setMargin(0);
-    }
-  }, [margin]);
-  useEffect(() => {
-    const keyHandler = (e) => {
-      switch (e.keyCode) {
-        case 37:
-          setActiveImage((activeImage) => activeImage - 1);
-          break;
-        case 39:
-          setActiveImage((activeImage) => activeImage + 1);
-          break;
-        default:
-          break;
-      }
-    };
-    window.addEventListener("keydown", keyHandler);
-    return () => {
-      window.removeEventListener("keydown", keyHandler);
-    };
-  }, []);
+
+    thumbRef.current[activeImage]?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  }, [activeImage, edges.length]);
+
   return (
     <Container>
       <Top>
@@ -70,32 +62,44 @@ const Slideshow = ({ data, activeButton }) => {
             />
           </StyledDiv>
         ))}
-        <LeftArrow onClick={() => setActiveImage(activeImage - 1)} />
-        <RightArrow onClick={() => setActiveImage(activeImage + 1)} />
+        <LeftArrow
+          onClick={() => {
+            setActiveImage((activeImage) => activeImage - 1);
+            console.log(activeImage);
+          }}
+        />
+        <RightArrow
+          onClick={() => {
+            setActiveImage((activeImage) => activeImage + 1);
+            console.log(activeImage);
+          }}
+        />
       </Top>
-      <Bottom>
-        <List ref={(el) => (listRef.current = el)} marginLeft={margin}>
-          {edges.map(({ node }, idx) => (
-            <Thumbnail
-              onClick={() => setActiveImage(idx)}
-              $active={activeImage === idx}
-              key={idx}
-              ref={(el) => (thumbRef.current[idx] = el)}
-            >
-              <StyledGatsbyImage
-                image={node.childImageSharp.gatsbyImageData}
-                alt={node.base}
-              />
-            </Thumbnail>
-          ))}
-          <LittleLeftArrow
-            onClick={() => setMargin((margin) => margin - 300)}
-          />
-          <LittleRightArrow
-            onClick={() => setMargin((margin) => margin + 300)}
-          />
-        </List>
-      </Bottom>
+      <ArrowContainer>
+        <Bottom ref={(el) => (listRef.current = el)}>
+          <List>
+            {edges.map(({ node }, idx) => (
+              <Thumbnail
+                onClick={() => setActiveImage(idx)}
+                $active={activeImage === idx}
+                key={idx}
+                ref={(el) => (thumbRef.current[idx] = el)}
+              >
+                <StyledGatsbyImage
+                  image={node.childImageSharp.gatsbyImageData}
+                  alt={node.base}
+                />
+              </Thumbnail>
+            ))}
+            <LittleLeftArrow
+              onClick={() => (listRef.current.scrollLeft -= 300)}
+            />
+            <LittleRightArrow
+              onClick={() => (listRef.current.scrollLeft += 300)}
+            />
+          </List>
+        </Bottom>
+      </ArrowContainer>
     </Container>
   );
 };
@@ -118,17 +122,24 @@ const StyledDiv = styled.div`
   opacity: ${({ $active }) => ($active ? "1" : "0")};
   transition: opacity 0.5s;
 `;
-const Bottom = styled.div`
+const ArrowContainer = styled.div`
   width: 100%;
-  overflow: hidden;
   position: relative;
   margin-top: 3em;
+`;
+const Bottom = styled.div`
+  width: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const List = styled.div`
   width: max-content;
   height: 130px;
-  margin-left: ${({ marginLeft }) => `-${marginLeft}px`};
-  transition: margin-left 0.5s;
 `;
 const Thumbnail = styled.div`
   height: 100%;

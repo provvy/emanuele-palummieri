@@ -18,7 +18,7 @@ const Card = (props) => {
       <Text>
         <h3>
           <StyledLink
-            title
+            $title
             to={"/galleria"}
             state={{ filter: `${data.title}` }}
           >
@@ -71,7 +71,7 @@ const HoverDiv = styled.div`
 `;
 const StyledLink = styled(Link)`
   color: #e5e5e5;
-  font-size: ${({ title }) => (title ? "inherit" : "26px")};
+  font-size: ${({ $title }) => ($title ? "inherit" : "26px")};
   text-decoration: none;
   :hover {
     text-decoration: underline;

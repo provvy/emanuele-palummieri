@@ -55,11 +55,11 @@ const GalleriaPage = ({ data, location }) => {
           <View>
             <p>Cambia visualizzazione:</p>
             <SlideIcon
-              active={activeView === "Slide"}
+              $active={activeView === "Slide"}
               onClick={() => setActiveView("Slide")}
             />
             <GridIcon
-              active={activeView === "Grid"}
+              $active={activeView === "Grid"}
               onClick={() => setActiveView("Grid")}
             />
           </View>
@@ -77,7 +77,7 @@ const GalleriaPage = ({ data, location }) => {
           {buttons.map((button) => (
             <Button
               key={button}
-              active={activeButton === button}
+              $active={activeButton === button}
               onClick={() => setActiveButton(button)}
             >
               {button}
@@ -124,13 +124,13 @@ const View = styled.div`
 `;
 const SlideIcon = styled(MdSlideshow)`
   font-size: 24px;
-  color: ${({ active }) => (active ? "#dba63c" : "#e5e5e5")};
+  color: ${({ $active }) => ($active ? "#dba63c" : "#e5e5e5")};
   cursor: pointer;
   margin: 0 5px;
 `;
 const GridIcon = styled(MdGridView)`
   font-size: 24px;
-  color: ${({ active }) => (active ? "#dba63c" : "#e5e5e5")};
+  color: ${({ $active }) => ($active ? "#dba63c" : "#e5e5e5")};
   cursor: pointer;
   margin: 0 5px;
 `;
@@ -161,8 +161,8 @@ const Button = styled.button`
   padding: 5px 13px;
   margin: 0 3px;
   cursor: pointer;
-  background: ${({ active }) => (active ? "#dba63c" : "none")};
-  color: ${({ active }) => (active ? "#1e1c19" : "#e5e5e5")};
+  background: ${({ $active }) => ($active ? "#dba63c" : "none")};
+  color: ${({ $active }) => ($active ? "#1e1c19" : "#e5e5e5")};
   transition: 0.3s;
   :hover {
     background: #dba63c;

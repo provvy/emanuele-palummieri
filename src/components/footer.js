@@ -15,9 +15,7 @@ const Footer = () => {
             © {date}, Immagini e testi sono di proprietà di Emanuele Palummieri
           </p>
           <p>
-            <StyledLink left to="/">
-              Home
-            </StyledLink>
+            <StyledLink to="/">Home</StyledLink>
             <span>|</span>
             <a
               target="_blank"
