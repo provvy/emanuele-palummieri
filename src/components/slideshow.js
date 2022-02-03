@@ -15,8 +15,8 @@ const Slideshow = ({ data, activeButton }) => {
 
   useEffect(() => {
     const keyHandler = (e) => {
-      if (e.keyCode === "37") setActiveImage((activeImage) => activeImage - 1);
-      else if (e.keyCode === "39")
+      if (e.keyCode === 37) setActiveImage((activeImage) => activeImage - 1);
+      else if (e.keyCode === 39)
         setActiveImage((activeImage) => activeImage + 1);
       return;
     };
@@ -47,7 +47,7 @@ const Slideshow = ({ data, activeButton }) => {
 
     thumbRef.current[activeImage]?.scrollIntoView({
       behavior: "smooth",
-      block: "center",
+      block: "end",
     });
   }, [activeImage, edges.length]);
 
