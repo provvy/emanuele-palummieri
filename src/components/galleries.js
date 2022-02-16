@@ -19,13 +19,13 @@ const Galleries = ({ data }) => {
       title: "Paesaggi",
       text: "Ogni paesaggio ha la sua storia: quella che leggiamo, quella che sogniamo, e quella che creiamo.",
       author: "M. Kennedy",
-      image: edges[0],
+      image: edges[2],
     },
     {
       title: "Street",
       text: "Una città non è disegnata, semplicemente si fa da sola. Basta ascoltarla, perchè la città è il riflesso di tante storie.",
       author: "R. Piano",
-      image: edges[2],
+      image: edges[0],
     },
   ];
   return (
