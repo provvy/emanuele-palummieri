@@ -14,7 +14,7 @@ import Gridshow from "../components/gridshow";
 import Seo from "../components/seo";
 
 const GalleriaPage = ({ data, location }) => {
-  const buttons = ["Tutte", "Natura", "Paesaggi", "Urbano"];
+  const buttons = ["Tutte", "Natura", "Paesaggi", "Street"];
   const views = ["Slide", "Grid"];
   const { state = {} } = location;
   const { filter } = state;
@@ -36,6 +36,8 @@ const GalleriaPage = ({ data, location }) => {
       const urbano = data["urbano"].edges;
       const allData = { edges: natura.concat(paesaggi, urbano) };
       setActiveData(allData);
+    } else if (activeButton === "Street") {
+      setActiveData(data["urbano"]);
     } else {
       setActiveData(data[activeButton.toLowerCase()]);
     }

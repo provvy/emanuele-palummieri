@@ -11,15 +11,18 @@ const Galleries = ({ data }) => {
   const dataObj = [
     {
       title: "Natura",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mattis velit, eget viverra ipsum. Vivamus sit amet felis a dolor tempor tincidunt. Vestibulum eu ipsum turpis. Nam pretium turpis.",
+      text: "Guardare la bellezza della natura è il primo passo per purificare la mente.",
+      author: "A. Ray",
     },
     {
       title: "Paesaggi",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mattis velit, eget viverra ipsum. Vivamus sit amet felis a dolor tempor tincidunt. Vestibulum eu ipsum turpis. Nam pretium turpis.",
+      text: "Ogni paesaggio ha la sua storia: quella che leggiamo, quella che sogniamo, e quella che creiamo.",
+      author: "M. Kennedy",
     },
     {
-      title: "Urbano",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a mattis velit, eget viverra ipsum. Vivamus sit amet felis a dolor tempor tincidunt. Vestibulum eu ipsum turpis. Nam pretium turpis.",
+      title: "Street",
+      text: "Una città non è disegnata, semplicemente si fa da sola. Basta ascoltarla, perchè la città è il riflesso di tante storie.",
+      author: "R. Piano",
     },
   ];
   return (

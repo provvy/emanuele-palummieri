@@ -37,7 +37,10 @@ const Footer = () => {
         <Contatti>
           <p>Contatti</p>
           <p>
-            <MailIcon /> <a href="mailto:info@gmail.com">info@gmail.com</a>
+            <MailIcon />{" "}
+            <a href="mailto:emanuelepalummieri@yahoo.it">
+              emanuelepalummieri@yahoo.it
+            </a>
           </p>
           <p>
             <FacebookIcon />{" "}
