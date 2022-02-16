@@ -13,16 +13,19 @@ const Galleries = ({ data }) => {
       title: "Natura",
       text: "Guardare la bellezza della natura è il primo passo per purificare la mente.",
       author: "A. Ray",
+      image: edges[1],
     },
     {
       title: "Paesaggi",
       text: "Ogni paesaggio ha la sua storia: quella che leggiamo, quella che sogniamo, e quella che creiamo.",
       author: "M. Kennedy",
+      image: edges[0],
     },
     {
       title: "Street",
       text: "Una città non è disegnata, semplicemente si fa da sola. Basta ascoltarla, perchè la città è il riflesso di tante storie.",
       author: "R. Piano",
+      image: edges[2],
     },
   ];
   return (
@@ -30,12 +33,13 @@ const Galleries = ({ data }) => {
       <Title>
         <h2>GALLERIE</h2>
       </Title>
+      {console.log(dataObj[0].image.node)}
       <Cards>
         {edges.map(({ node }, idx) => (
           <Card
             key={idx}
             image={{
-              src: node.childImageSharp.gatsbyImageData,
+              src: dataObj[idx].image.node.childImageSharp.gatsbyImageData,
               alt: node.base,
             }}
             data={dataObj[idx]}
