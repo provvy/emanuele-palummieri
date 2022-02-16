@@ -6,7 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image";
 const Bio = ({ data }) => {
   const {
     bioImage: {
-      edges: [{ node: contestPic }, { node: bioPic }],
+      edges: [{ node: bioPic }, { node: contestPic }],
     },
   } = data;
   return (
