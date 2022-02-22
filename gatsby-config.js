@@ -7,6 +7,7 @@ module.exports = {
       "Emanuele Palummieri, fotografo paesaggista e naturalista, riesce a cogliere con i suoi scatti le più raffinate sfumature della realtà che lo circonda.",
     keywords:
       "Emanuele, Palummieri, fotografo, salento, natura, paesaggi, mare, spiaggia, puglia",
+    image: "./src/images/bioImage/fiume.jpg",
   },
   plugins: [
     "gatsby-plugin-styled-components",
