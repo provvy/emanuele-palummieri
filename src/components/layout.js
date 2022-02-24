@@ -40,13 +40,13 @@ const Main = styled.main`
   align-items: center;
   padding-top: 94px;
   min-height: calc(100vh - 177px);
-  @media screen and (max-width: 951px) {
-    padding-top: 83px;
+  @media screen and (max-width: 507px) {
+    padding-top: 118px;
   }
   @media screen and (max-width: 445px) {
     padding-top: 75px;
   }
-  @media screen and (max-width: 362px) {
-    padding-top: 71px;
+  @media screen and (max-width: 416px) {
+    padding-top: 102px;
   }
 `;

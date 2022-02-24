@@ -10,7 +10,7 @@ const Navbar = () => {
       <Logo>
         <h1>
           <StyledLink logo={"true"} to="/">
-            Emanuele Palummieri
+            Emanuele Palummieri <span>Photo</span>
           </StyledLink>
         </h1>
         {menu ? (
@@ -153,6 +153,18 @@ const StyledLink = styled(Link)`
         color: #dba63c;
         transition: all 0.25s;
       `};
+  }
+  span {
+    font-size: 24px;
+    @media screen and (max-width: 951px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: 445px) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: 362px) {
+      font-size: 11px;
+    }
   }
 `;
 const MenuIcon = styled(AiOutlineMenu)`

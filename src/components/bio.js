@@ -47,7 +47,7 @@ const Bio = ({ data }) => {
           />
           <p>
             <span>"Alle prime luci dell'alba"</span> - foto scattata subito dopo
-            l'aurora in località fiume Borraco, sulla litoranea salentina, a
+            l'alba in località fiume Borraco, sulla litoranea salentina, a
             Manduria (Ta). Questa foto, oltre ad essere un esempio tangibile dei
             momenti di contemplazione e di fuga del fotografo, cui si è fatto
             riferimento poc'anzi, gli è anche valsa la vittoria ad un noto
