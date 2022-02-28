@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://emanuelepalummieri.it",
+    siteUrl: "https://www.emanuelepalummieri.it",
     title: "Emanuele Palummieri Fotografo",
     author: "Paolo Provveduto",
     description:
@@ -10,6 +10,15 @@ module.exports = {
     image: "./src/images/bioImage/fiume.jpg",
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://www.emanuelepalummieri.it",
+        sitemap: "https://www.emanuelepalummieri.it/sitemap/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
