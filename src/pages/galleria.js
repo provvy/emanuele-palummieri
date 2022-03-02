@@ -48,7 +48,7 @@ const GalleriaPage = ({ data, location }) => {
         slug={"/galleria"}
         title={"Galleria"}
         description={
-          "Nella galleria potrai sfogliare i numerosi scatti di Emanuele Palummieri, divisi per categorie: alle foto sulla natura, si accompagnano quelle a tema paesaggi e, infine, quelle in ambito urbano."
+          "Nella galleria potrai sfogliare i numerosi scatti di Emanuele Palummieri, divisi per categorie: foto sulla natura, sui paesaggi e urban street."
         }
       />
       <Top>

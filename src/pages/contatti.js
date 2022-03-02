@@ -13,7 +13,7 @@ const ContattiPage = () => {
         slug={"/contatti"}
         title={"Contatti"}
         description={
-          "La sezione contatti è ricca di recapiti per raggiungere Emanuele Palummieri per eventuali richieste, commissioni e preventivi, quali Facebook, WhatsApp e la sua mail."
+          "La sezione contatti è ricca di recapiti per raggiungere Emanuele Palummieri per richieste, commissioni e preventivi: Facebook, Whatsapp e mail."
         }
       />
       <Top>

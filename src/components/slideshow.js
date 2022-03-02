@@ -65,13 +65,11 @@ const Slideshow = ({ data, activeButton }) => {
         <LeftArrow
           onClick={() => {
             setActiveImage((activeImage) => activeImage - 1);
-            console.log(activeImage);
           }}
         />
         <RightArrow
           onClick={() => {
             setActiveImage((activeImage) => activeImage + 1);
-            console.log(activeImage);
           }}
         />
       </Top>

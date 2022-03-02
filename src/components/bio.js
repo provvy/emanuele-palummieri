@@ -11,7 +11,6 @@ const Bio = ({ data }) => {
   } = data;
   return (
     <Container>
-      {console.log(contestPic)}
       <Title>
         <h2>BIO</h2>
       </Title>
@@ -19,7 +18,7 @@ const Bio = ({ data }) => {
         <Image>
           <GatsbyImage
             image={bioPic.childImageSharp.gatsbyImageData}
-            alt={bioPic.base}
+            alt={"Emanuele Palummieri"}
           />
         </Image>
         <Text>
@@ -43,7 +42,7 @@ const Bio = ({ data }) => {
         <Contest>
           <GatsbyImage
             image={contestPic.childImageSharp.gatsbyImageData}
-            alt={contestPic.base}
+            alt={"Alle prime luci dell'alba"}
           />
           <p>
             <span>"Alle prime luci dell'alba"</span> - foto scattata subito dopo

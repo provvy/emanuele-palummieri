@@ -33,7 +33,6 @@ const Galleries = ({ data }) => {
       <Title>
         <h2>GALLERIE</h2>
       </Title>
-      {console.log(dataObj[0].image.node)}
       <Cards>
         {edges.map(({ node }, idx) => (
           <Card
