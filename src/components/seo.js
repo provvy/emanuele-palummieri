@@ -28,9 +28,12 @@ const Seo = ({ title, description, slug }) => {
         name="description"
         content={description || site.siteMetadata.description}
       />
-      <meta name="image" content={site.siteMetadata.image} />
+      <meta name="image" content={"https://i.ibb.co/Y2FCgJC/fiume.jpg"} />
       <meta name="keywords" content={site.siteMetadata.keywords} />
-      <meta property="og:image" content={site.siteMetadata.image} />
+      <meta
+        property="og:image"
+        content={"https://i.ibb.co/Y2FCgJC/fiume.jpg"}
+      />
       <meta property="og:title" content={title || site.siteMetadata.title} />
       <meta
         property="og:description"
@@ -40,7 +43,10 @@ const Seo = ({ title, description, slug }) => {
       <meta property="og:url" content={`${site.siteMetadata.siteUrl}${slug}`} />
       <meta property="og:site_name" content={site.siteMetadata.title} />
       <meta name="twitter:title" content={title || site.siteMetadata.title} />
-      <meta name="twitter:image" content={site.siteMetadata.image} />
+      <meta
+        name="twitter:image"
+        content={"https://i.ibb.co/Y2FCgJC/fiume.jpg"}
+      />
       <meta
         name="twitter:description"
         content={description || site.siteMetadata.description}
