@@ -24,7 +24,7 @@ const GalleriaPage = ({ data, location }) => {
       data["urbano"].edges
     ),
   };
-  const [activeView, setActiveView] = useState(views[0]);
+  const [activeView, setActiveView] = useState(views[1]);
   const [activeButton, setActiveButton] = useState(
     filter ? filter : buttons[0]
   );

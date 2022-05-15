@@ -7,6 +7,8 @@ import { AiOutlineClose } from "react-icons/ai";
 const Gridshow = ({ data }) => {
   const { edges } = data;
   const [isOpen, setIsOpen] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const [activeImage, setActiveImage] = useState(0);
   const clickHandler = (idx) => {
     setIsOpen(true);
@@ -28,6 +30,9 @@ const Gridshow = ({ data }) => {
         case 39:
           setActiveImage((activeImage) => activeImage + 1);
           break;
+        case 27:
+          setIsOpen(false);
+          break;
         default:
           break;
       }
@@ -35,8 +40,31 @@ const Gridshow = ({ data }) => {
     if (isOpen) {
       window.addEventListener("keydown", keyHandler);
     }
-    return () => window.removeEventListener("keydown", keyHandler);
+    return () => {
+      window.removeEventListener("keydown", keyHandler);
+    };
   }, [isOpen]);
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      setTouchStart(e.changedTouches[0].clientX);
+    };
+    const handleTouchEnd = (e) => {
+      setTouchEnd(e.changedTouches[0].clientX);
+      if (touchStart - touchEnd > 25) {
+        setActiveImage((activeImage) => activeImage + 1);
+      } else if (touchEnd - touchStart > 25) {
+        setActiveImage((activeImage) => activeImage - 1);
+      }
+    };
+    if (isOpen) {
+      window.addEventListener("touchstart", handleTouchStart);
+      window.addEventListener("touchend", handleTouchEnd);
+    }
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [isOpen, touchStart, touchEnd]);
   return (
     <Grid>
       {edges.map(({ node }, idx) => (
@@ -76,6 +104,9 @@ const Grid = styled.div`
   flex-wrap: wrap;
   margin: 0 auto;
   padding-top: 0.5em;
+  @media screen and (max-width: 768px) {
+    gap: 0;
+  }
 `;
 const StyledDiv = styled.div`
   height: 250px;
@@ -99,10 +130,10 @@ const StyledDiv = styled.div`
     opacity: 1;
   }
   @media screen and (max-width: 768px) {
-    margin: 10px 0;
+    margin: 10px;
   }
-  @media screen and (max-width: 430px) {
-    height: 200px;
+  @media screen and (max-width: 615px) {
+    height: unset;
   }
 `;
 const FancyContainer = styled.div`

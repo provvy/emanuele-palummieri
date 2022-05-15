@@ -40,14 +40,14 @@ const Navbar = () => {
               Galleria
             </StyledLink>
           </li>
-          {/* <li>
+          <li>
             <StyledLink
               activeStyle={{ fontWeight: "400", color: "#dba63c" }}
-              to="/bio"
+              to="/lavori"
             >
-              Bio
+              Lavori
             </StyledLink>
-          </li> */}
+          </li>
           <li>
             <StyledLink
               activeStyle={{ fontWeight: "400", color: "#dba63c" }}
@@ -113,7 +113,7 @@ const Nav = styled.nav`
   flex: 0.3;
   @media screen and (max-width: 951px) {
     position: absolute;
-    bottom: ${(props) => (!props.menu ? "100%" : "-162px")};
+    bottom: ${(props) => (!props.menu ? "100%" : "-215px")};
     opacity: ${(props) => (!props.menu ? "0" : "100%")};
     transition: bottom 0.5s, opacity 0.5s;
     left: 0;
