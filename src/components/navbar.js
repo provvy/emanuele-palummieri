@@ -10,7 +10,7 @@ const Navbar = () => {
       <Logo>
         <h1>
           <StyledLink logo={"true"} to="/">
-            Emanuele Palummieri
+            Emanuele Palummieri <span>Photo</span>
           </StyledLink>
         </h1>
         {menu ? (
@@ -40,14 +40,14 @@ const Navbar = () => {
               Galleria
             </StyledLink>
           </li>
-          {/* <li>
+          <li>
             <StyledLink
               activeStyle={{ fontWeight: "400", color: "#dba63c" }}
-              to="/bio"
+              to="/lavori"
             >
-              Bio
+              Lavori
             </StyledLink>
-          </li> */}
+          </li>
           <li>
             <StyledLink
               activeStyle={{ fontWeight: "400", color: "#dba63c" }}
@@ -113,7 +113,7 @@ const Nav = styled.nav`
   flex: 0.3;
   @media screen and (max-width: 951px) {
     position: absolute;
-    bottom: ${(props) => (!props.menu ? "100%" : "-162px")};
+    bottom: ${(props) => (!props.menu ? "100%" : "-215px")};
     opacity: ${(props) => (!props.menu ? "0" : "100%")};
     transition: bottom 0.5s, opacity 0.5s;
     left: 0;
@@ -153,6 +153,18 @@ const StyledLink = styled(Link)`
         color: #dba63c;
         transition: all 0.25s;
       `};
+  }
+  span {
+    font-size: 24px;
+    @media screen and (max-width: 951px) {
+      font-size: 18px;
+    }
+    @media screen and (max-width: 445px) {
+      font-size: 14px;
+    }
+    @media screen and (max-width: 362px) {
+      font-size: 11px;
+    }
   }
 `;
 const MenuIcon = styled(AiOutlineMenu)`

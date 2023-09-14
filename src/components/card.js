@@ -18,7 +18,7 @@ const Card = (props) => {
       <Text>
         <h3>
           <StyledLink
-            title
+            $title
             to={"/galleria"}
             state={{ filter: `${data.title}` }}
           >
@@ -26,6 +26,7 @@ const Card = (props) => {
           </StyledLink>
         </h3>
         <p>{data.text}</p>
+        <span>- {data.author}</span>
       </Text>
     </Container>
   );
@@ -39,7 +40,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 10px 40px;
-  align-items: center;
   @media screen and (max-width: 756px) {
     flex-basis: 680px;
   }
@@ -71,7 +71,7 @@ const HoverDiv = styled.div`
 `;
 const StyledLink = styled(Link)`
   color: #e5e5e5;
-  font-size: ${({ title }) => (title ? "inherit" : "26px")};
+  font-size: ${({ $title }) => ($title ? "inherit" : "26px")};
   text-decoration: none;
   :hover {
     text-decoration: underline;
@@ -88,5 +88,10 @@ const Text = styled.div`
     font-size: 17px;
     line-height: 1.4em;
     color: #a5a5a5;
+    margin-bottom: 0.3em;
+  }
+  span {
+    color: #e5e5e5;
+    font-size: 15px;
   }
 `;

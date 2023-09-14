@@ -14,7 +14,7 @@ import Gridshow from "../components/gridshow";
 import Seo from "../components/seo";
 
 const GalleriaPage = ({ data, location }) => {
-  const buttons = ["Tutte", "Natura", "Paesaggi", "Urbano"];
+  const buttons = ["Tutte", "Natura", "Paesaggi", "Street"];
   const views = ["Slide", "Grid"];
   const { state = {} } = location;
   const { filter } = state;
@@ -24,7 +24,7 @@ const GalleriaPage = ({ data, location }) => {
       data["urbano"].edges
     ),
   };
-  const [activeView, setActiveView] = useState(views[0]);
+  const [activeView, setActiveView] = useState(views[1]);
   const [activeButton, setActiveButton] = useState(
     filter ? filter : buttons[0]
   );
@@ -36,6 +36,8 @@ const GalleriaPage = ({ data, location }) => {
       const urbano = data["urbano"].edges;
       const allData = { edges: natura.concat(paesaggi, urbano) };
       setActiveData(allData);
+    } else if (activeButton === "Street") {
+      setActiveData(data["urbano"]);
     } else {
       setActiveData(data[activeButton.toLowerCase()]);
     }
@@ -46,7 +48,7 @@ const GalleriaPage = ({ data, location }) => {
         slug={"/galleria"}
         title={"Galleria"}
         description={
-          "Nella galleria potrai sfogliare i numerosi scatti di Emanuele Palummieri, divisi per categorie: alle foto sulla natura, si accompagnano quelle a tema paesaggi e, infine, quelle in ambito urbano."
+          "Nella galleria potrai sfogliare i numerosi scatti di Emanuele Palummieri, divisi per categorie: foto sulla natura, sui paesaggi e urban street."
         }
       />
       <Top>
@@ -55,11 +57,11 @@ const GalleriaPage = ({ data, location }) => {
           <View>
             <p>Cambia visualizzazione:</p>
             <SlideIcon
-              active={activeView === "Slide"}
+              $active={activeView === "Slide"}
               onClick={() => setActiveView("Slide")}
             />
             <GridIcon
-              active={activeView === "Grid"}
+              $active={activeView === "Grid"}
               onClick={() => setActiveView("Grid")}
             />
           </View>
@@ -77,7 +79,7 @@ const GalleriaPage = ({ data, location }) => {
           {buttons.map((button) => (
             <Button
               key={button}
-              active={activeButton === button}
+              $active={activeButton === button}
               onClick={() => setActiveButton(button)}
             >
               {button}
@@ -124,13 +126,13 @@ const View = styled.div`
 `;
 const SlideIcon = styled(MdSlideshow)`
   font-size: 24px;
-  color: ${({ active }) => (active ? "#dba63c" : "#e5e5e5")};
+  color: ${({ $active }) => ($active ? "#dba63c" : "#e5e5e5")};
   cursor: pointer;
   margin: 0 5px;
 `;
 const GridIcon = styled(MdGridView)`
   font-size: 24px;
-  color: ${({ active }) => (active ? "#dba63c" : "#e5e5e5")};
+  color: ${({ $active }) => ($active ? "#dba63c" : "#e5e5e5")};
   cursor: pointer;
   margin: 0 5px;
 `;
@@ -161,8 +163,8 @@ const Button = styled.button`
   padding: 5px 13px;
   margin: 0 3px;
   cursor: pointer;
-  background: ${({ active }) => (active ? "#dba63c" : "none")};
-  color: ${({ active }) => (active ? "#1e1c19" : "#e5e5e5")};
+  background: ${({ $active }) => ($active ? "#dba63c" : "none")};
+  color: ${({ $active }) => ($active ? "#1e1c19" : "#e5e5e5")};
   transition: 0.3s;
   :hover {
     background: #dba63c;

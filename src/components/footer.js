@@ -15,9 +15,7 @@ const Footer = () => {
             © {date}, Immagini e testi sono di proprietà di Emanuele Palummieri
           </p>
           <p>
-            <StyledLink left to="/">
-              Home
-            </StyledLink>
+            <StyledLink to="/">Home</StyledLink>
             <span>|</span>
             <a
               target="_blank"
@@ -39,7 +37,10 @@ const Footer = () => {
         <Contatti>
           <p>Contatti</p>
           <p>
-            <MailIcon /> <a href="mailto:info@gmail.com">info@gmail.com</a>
+            <MailIcon />{" "}
+            <a href="mailto:emanuelepalummieri@yahoo.it">
+              emanuelepalummieri@yahoo.it
+            </a>
           </p>
           <p>
             <FacebookIcon />{" "}

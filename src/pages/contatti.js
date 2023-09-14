@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 import { Title } from "../components/galleries";
 import { Link } from "gatsby";
-import { BsWhatsapp } from "react-icons/bs";
+import { BsWhatsapp, BsMessenger } from "react-icons/bs";
 import Seo from "../components/seo";
 
 const ContattiPage = () => {
@@ -13,7 +13,7 @@ const ContattiPage = () => {
         slug={"/contatti"}
         title={"Contatti"}
         description={
-          "La sezione contatti è ricca di strumenti per raggiungere Emanuele Palummieri per eventuali richieste, commissioni e preventivi, quali Facebook, WhatsApp e la sua mail."
+          "La sezione contatti è ricca di recapiti per raggiungere Emanuele Palummieri per richieste, commissioni e preventivi: Facebook, Whatsapp e mail."
         }
       />
       <Top>
@@ -35,7 +35,9 @@ const ContattiPage = () => {
         <Contacts>
           <Category>Email:</Category>
           <Description>
-            <a href="mailto:info@gmail.com">info@gmail.com</a>
+            <a href="mailto:emanuelepalummieri@yahoo.it">
+              emanuelepalummieri@yahoo.it
+            </a>
           </Description>
         </Contacts>
         <Contacts>
@@ -57,10 +59,13 @@ const ContattiPage = () => {
           </Description>
         </Contacts>
         <WhatsApp>
-          <p>Anche su Whatsapp:</p>
-          <a href="https://wa.me/393931440205">
+          <p>Anche su Whatsapp e Messenger:</p>
+          <IconLink href="https://wa.me/393931440205">
             <WhatsAppIcon />
-          </a>
+          </IconLink>
+          <IconLink variant href="https://m.me/emanuele.palummieri">
+            <MessengerIcon />
+          </IconLink>
         </WhatsApp>
       </Top>
     </Layout>
@@ -129,22 +134,35 @@ const WhatsApp = styled.div`
     font-family: "Crimson Pro", serif;
     margin-right: 1em;
   }
-  a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #25b63d;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.5s;
-    &:hover {
-      background: #1e9e33;
-    }
+  @media screen and (max-width: 450px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+`;
+const IconLink = styled.a`
+  display: flex;
+  margin-right: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  background: ${(props) => (props.variant ? "#1165E9" : "#25b63d")};
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.25s;
+  &:hover {
+    background: ${(props) => (props.variant ? "#1256C3" : "#1e9e33")};
   }
 `;
 const WhatsAppIcon = styled(BsWhatsapp)`
+  width: 60%;
+  height: auto;
+  path {
+    fill: #fff;
+  }
+`;
+const MessengerIcon = styled(BsMessenger)`
   width: 60%;
   height: auto;
   path {

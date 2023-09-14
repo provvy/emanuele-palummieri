@@ -13,6 +13,7 @@ const Seo = ({ title, description, slug }) => {
           author
           keywords
           siteUrl
+          image
         }
       }
     }
@@ -27,16 +28,25 @@ const Seo = ({ title, description, slug }) => {
         name="description"
         content={description || site.siteMetadata.description}
       />
+      <meta name="image" content={"https://i.ibb.co/Y2FCgJC/fiume.jpg"} />
       <meta name="keywords" content={site.siteMetadata.keywords} />
-      <meta name="og:title" content={title || site.siteMetadata.title} />
       <meta
-        name="og:description"
+        property="og:image"
+        content={"https://i.ibb.co/Y2FCgJC/fiume.jpg"}
+      />
+      <meta property="og:title" content={title || site.siteMetadata.title} />
+      <meta
+        property="og:description"
         content={description || site.siteMetadata.description}
       />
-      <meta name="og:type" content="website" />
-      <meta name="og:url" content={`${site.siteMetadata.siteUrl}${slug}`} />
-      <meta name="og:site_name" content={site.siteMetadata.title} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={`${site.siteMetadata.siteUrl}${slug}`} />
+      <meta property="og:site_name" content={site.siteMetadata.title} />
       <meta name="twitter:title" content={title || site.siteMetadata.title} />
+      <meta
+        name="twitter:image"
+        content={"https://i.ibb.co/Y2FCgJC/fiume.jpg"}
+      />
       <meta
         name="twitter:description"
         content={description || site.siteMetadata.description}

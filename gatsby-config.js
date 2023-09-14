@@ -1,14 +1,24 @@
 module.exports = {
   siteMetadata: {
     siteUrl: "https://emanuelepalummieri.it",
-    title: "Emanuele Palummieri Fotografo",
+    title: "Emanuele Palummieri",
     author: "Paolo Provveduto",
     description:
-      "Emanuele Palummieri, fotografo paesaggista e naturalista, riesce a cogliere con i suoi scatti le più raffinate sfumature della realtà che lo circonda.",
+      "Emanuele Palummieri - fotografo paesaggista e naturalista, riesce a cogliere con i suoi scatti le più raffinate sfumature della realtà che lo circonda.",
     keywords:
       "Emanuele, Palummieri, fotografo, salento, natura, paesaggi, mare, spiaggia, puglia",
+    image: "/fiume.jpg",
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        host: "https://emanuelepalummieri.it",
+        sitemap: "https://emanuelepalummieri.it/sitemap/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",

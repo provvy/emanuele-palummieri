@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import HomeSlider from "../components/homeSlider";
 import Galleries from "../components/galleries";
 import Bio from "../components/bio";
-import CookieConsent from "react-cookie-consent";
+import Cookies from "../components/cookies";
 import Seo from "../components/seo";
 
 // markup
@@ -15,29 +15,7 @@ const IndexPage = ({ data }) => {
       <HomeSlider data={data} />
       <Galleries data={data} />
       <Bio data={data} />
-      <CookieConsent
-        style={{
-          background: "#1e1c19",
-          fontFamily: "Source Sans Pro",
-          fontSize: "18px",
-          fontWeight: "400",
-          padding: "15px",
-        }}
-        buttonStyle={{
-          background: "#dba63c",
-          color: "#1e1c19",
-          fontFamily: "Source Sans Pro",
-          fontSize: "16px",
-          fontWeight: "600",
-          borderRadius: "12px",
-          padding: "10px 30px",
-        }}
-        contentStyle={{ flex: "1 0 200px" }}
-        buttonText="Ho capito"
-      >
-        Questo sito potrebbe fare uso di cookies per migliorare l'esperienza
-        d'uso.
-      </CookieConsent>
+      <Cookies />
     </Layout>
   );
 };
@@ -83,8 +61,7 @@ export const homeSliderQuery = graphql`
             gatsbyImageData(
               placeholder: BLURRED
               transformOptions: { cropFocus: CENTER, fit: COVER }
-              width: 700
-              aspectRatio: 1.2
+              width: 980
             )
           }
           base
